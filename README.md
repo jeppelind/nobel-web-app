@@ -26,6 +26,8 @@ bun run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+The app is also deployed to [https://nobel-app-jeppelind.netlify.app/](https://nobel-app-jeppelind.netlify.app/). So you can also view it there.
+
 ## About
 
 This project is a simple web application that allows you to view and edit Nobel Prize laureates. It uses the Nobel Prize API to fetch data and displays it in a list format.
