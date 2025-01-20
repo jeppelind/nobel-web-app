@@ -35,7 +35,6 @@ export default function Laureates({ nobelPrizes }: { nobelPrizes: NobelPrize[] }
   const handleEditLaureate = ({ year, id, name, motivation }: { year: number, id: string, name: string, motivation: string }) => {
     const cutomPrizesCopy = [...customNobelPrizes];
     const existingYearIdx = cutomPrizesCopy.findIndex(customPrize => {
-      console.log(customPrize.awardYear, year.toString(), customPrize.awardYear === year.toString());
       return customPrize.awardYear === year.toString();
     });
     if (existingYearIdx === -1) {
