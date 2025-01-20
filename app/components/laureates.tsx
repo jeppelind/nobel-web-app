@@ -98,22 +98,24 @@ export default function Laureates({ nobelPrizes }: { nobelPrizes: NobelPrize[] }
           {
             combinedNobelPrizes.map((prize: NobelPrize) => (
               <div key={prize.awardYear}>
-                <h2 className="text-xl font-semibold text-amber-700">{prize.awardYear}</h2>
+                <h2 className="text-xl font-semibold text-amber-700 mt-4">{prize.awardYear}</h2>
                 <div className="flex flex-col gap-2">
                   {
                     prize.laureates.map((laureate: NobelPrizeLaureate) => (
                       <div key={laureate.id}>
-                        <p className="text-lg font-semibold">{laureate.knownName.en}</p>
+                        <div className="group flex flex-row justify-between gap-2">
+                          <p className="text-lg font-semibold">{laureate.knownName.en}</p>
+                          <button
+                            onClick={() => {
+                              setSelectedLaureate({ year: Number(prize.awardYear), id: laureate.id, name: laureate.knownName.en, motivation: laureate.motivation.en });
+                              setIsEditDialogOpen(true);
+                            }}
+                            className="font-bold text-xs text-slate-500 hover:bg-amber-500 hover:text-white px-4 py-1 rounded-md"
+                          >
+                            Edit
+                          </button>
+                        </div>
                         <p className="text-sm md:text-base italic text-slate-600">“{laureate.motivation.en}”</p>
-                        <button
-                          onClick={() => {
-                            setSelectedLaureate({ year: Number(prize.awardYear), id: laureate.id, name: laureate.knownName.en, motivation: laureate.motivation.en });
-                            setIsEditDialogOpen(true);
-                          }}
-                          className="font-bold bg-amber-600 hover:bg-amber-500 text-white px-4 py-2 rounded-md"
-                        >
-                          Edit
-                        </button>
                       </div>
                     ))
                   }

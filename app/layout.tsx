@@ -13,6 +13,14 @@ export const metadata: Metadata = {
   description: "Web app for Nobel Prize Laureates",
 };
 
+function Loading() {
+  return (
+    <div className="container mx-auto flex flex-col items-center">
+      <div className="text-2xl font-bold">Loading...</div>
+    </div>
+  );
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -22,7 +30,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${stixTwoText.className} antialiased bg-slate-100 text-slate-700`} >
         <Header />
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loading />}>
           {children}
         </Suspense>
       </body>
